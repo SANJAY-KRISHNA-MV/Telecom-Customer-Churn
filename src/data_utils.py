@@ -10,15 +10,13 @@ def load_data():
         pd.DataFrame: DataFrame containing the cleaned churn data.
     """
     # Define the file path for the CSV file
-    file_path = r'../Telecom Customer Churn/data/processed/churn_data_cleaned.csv'
-
-    # Check if the file exists
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"The file {file_path} does not exist.")
+    file_path = r'../../Telecom Customer Churn/data/processed/churn_data_cleaned.csv'
 
     # Read the CSV file into a DataFrame
     df = pd.read_csv(file_path)
+    df.reset_index(drop=True)
 
+    # Return the DataFrame
     return df
 
 
@@ -43,5 +41,3 @@ if __name__ == "__main__":
     
     except Exception as e:
         print(f"An error occurred: {e}")    
-    
-
